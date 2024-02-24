@@ -7,7 +7,8 @@ import ElantraJpg from "../../images/elantra.jpg";
 const Homepage = () => {
   const cars = [
     {
-      name: "Toyota Camry 2020",
+      name: "Toyota Camry",
+      year: "2020",
       class: "Premium Class",
       fuel: "Gas",
       type: "Sedan",
@@ -16,24 +17,29 @@ const Homepage = () => {
       link: "cars",
     },
     {
-      name: "Hyundai Elantra 2015",
+      name: "Hyundai Elantra",
       class: "Econom Class",
+      year: "2015",
       fuel: "Gas",
       type: "Sedan",
       price: "40",
       photo: ElantraJpg,
       link: "cars",
-    }, {
-      name: "Hyundai Elantra 2015",
+    },
+    {
+      name: "Hyundai Elantra",
       class: "Econom Class",
+      year: "2015",
       fuel: "Gas",
       type: "Sedan",
       price: "40",
       photo: ElantraJpg,
       link: "cars",
-    }, {
-      name: "Hyundai Elantra 2015",
+    },
+    {
+      name: "Hyundai Elantra",
       class: "Econom Class",
+      year: "2015",
       fuel: "Gas",
       type: "Sedan",
       price: "40",
