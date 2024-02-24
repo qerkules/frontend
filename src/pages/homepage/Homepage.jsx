@@ -23,6 +23,22 @@ const Homepage = () => {
       price: "40",
       photo: ElantraJpg,
       link: "cars",
+    }, {
+      name: "Hyundai Elantra 2015",
+      class: "Econom Class",
+      fuel: "Gas",
+      type: "Sedan",
+      price: "40",
+      photo: ElantraJpg,
+      link: "cars",
+    }, {
+      name: "Hyundai Elantra 2015",
+      class: "Econom Class",
+      fuel: "Gas",
+      type: "Sedan",
+      price: "40",
+      photo: ElantraJpg,
+      link: "cars",
     },
   ];
 
