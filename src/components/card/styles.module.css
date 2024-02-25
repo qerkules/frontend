@@ -20,7 +20,7 @@
 
 .title {
   font-size: 16px !important;
-  color: #293241;
+  color: var(--darkblue);
 }
 
 .subtitleSection {
@@ -31,7 +31,7 @@
 
 .subtitle {
   font-size: 14px;
-  color: #e8694b;
+  color: var(--orange);
   font-weight: 400;
 }
 .year {
@@ -44,14 +44,14 @@
 }
 
 .box {
-  background-color: #e0fbfc;
+  background-color: var(--lightblue);
   padding: 5px;
   border-radius: 10px;
   width: 50px;
   font-size: 10px;
   display: flex;
   justify-content: center;
-  color: #293241;
+  color: var(--darkblue);
 }
 
 .priceSection {
@@ -63,12 +63,12 @@
 
 .price {
   font-size: 20px;
-  color: #293241;
+  color: var(--darkblue);
 }
 
 .bookNow {
   padding: 5px 10px;
-  background-color: #e8694b;
+  background-color: var(--orange);
   color: white;
   border-radius: 10px;
   font-size: 12px;

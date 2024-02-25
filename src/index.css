@@ -1,4 +1,11 @@
-*{
+:root {
+  --orange: #e8694b;
+  --darkblue: #293241;
+  --lightblue: #e0fbfc;
+  --blue: #00b;
+}
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
