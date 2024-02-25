@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  padding: 10px;
+  padding-right: 30px;
+  justify-content: space-between;
+  align-items: center;
+border-bottom: 1px solid var(--darkblue);
+}
+
+.logoSection {
+  flex: 2;
+  width: 20%;
+}
+
+.logo {
+  width: 100px;
+}
+
+.icon {
+  font-size: 30px;
+}

@@ -4,6 +4,7 @@ import Card from "../../components/card/Card";
 import CamryJpg from "../../images/camry.jpg";
 import ElantraJpg from "../../images/elantra.jpg";
 import Header from "../../components/header/Header";
+import Navbar from "../../components/navbar/Navbar";
 
 const Homepage = () => {
   const cars = [
@@ -51,6 +52,7 @@ const Homepage = () => {
 
   return (
     <div className={`${styles.container}`}>
+      <Navbar />  
       <Header />
       <div className={`${styles.cardContainer}`}>
         {cars.map((car) => {
