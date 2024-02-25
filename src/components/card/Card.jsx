@@ -24,13 +24,15 @@ const Card = ({ car }) => {
 
       <div className={`${styles.description}`}>
         <div className={`${styles.box}`}>
-          <FaCar /> &nbsp;&nbsp; <span>{car.type}</span>
+          <FaCar className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
+          <span>{car.type}</span>
         </div>
         <div className={`${styles.box}`}>
-          <FaGasPump /> &nbsp;&nbsp; <span>{car.fuel}</span>
+          <FaGasPump className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
+          <span>{car.fuel}</span>
         </div>
         <div className={`${styles.box}`}>
-          <TbManualGearbox />
+          <TbManualGearbox className={`${styles.icon}`} />
           &nbsp;&nbsp;
           <span>Auto</span>
         </div>
