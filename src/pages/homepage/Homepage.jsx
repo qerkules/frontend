@@ -6,6 +6,7 @@ import ElantraJpg from "../../images/elantra.jpg";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import Ourservices from "../../components/ouservices/Ourservices";
+import BrandBanner from "../../components/bradBanner/BrandBanner";
 
 const Homepage = () => {
   const cars = [
@@ -56,6 +57,8 @@ const Homepage = () => {
       <Navbar />
       <Header />
       <Ourservices />
+      <BrandBanner />
+      <h4 className={`${styles.cardTitle}`}>Available Cars</h4>
       <div className={`${styles.cardContainer}`}>
         {cars.map((car) => {
           return <Card car={car} />;

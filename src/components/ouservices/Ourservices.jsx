@@ -4,6 +4,7 @@ import { BsCash } from "react-icons/bs";
 import { Ri24HoursFill } from "react-icons/ri";
 import { BiSupport } from "react-icons/bi";
 import { IoMdPersonAdd } from "react-icons/io";
+import { MdLocalAirport } from "react-icons/md";
 
 const Ourservices = () => {
   return (
@@ -31,6 +32,18 @@ const Ourservices = () => {
               </p>
             </div>
           </div>
+          <div className={`${styles.infoCard}`}>
+            <div className={`${styles.iconContainer}`}>
+              <MdLocalAirport />
+            </div>
+            <div className={`${styles.infoBox}`}>
+              <h4 className={`${styles.infoTitle}`}>Delivery To Airport</h4>
+              <p className={`${styles.infoSubtitle}`}>
+                Best price performance cars in baku
+              </p>
+            </div>
+          </div>
+
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
               <Ri24HoursFill />
