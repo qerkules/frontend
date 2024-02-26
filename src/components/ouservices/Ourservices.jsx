@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { BsCash } from "react-icons/bs";
+import { Ri24HoursFill } from "react-icons/ri";
+import { BiSupport } from "react-icons/bi";
+import { IoMdPersonAdd } from "react-icons/io";
+
 const Ourservices = () => {
   return (
     <div className={`${styles.container}`}>
@@ -29,10 +33,10 @@ const Ourservices = () => {
           </div>
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
-              <BsCash />
+              <Ri24HoursFill />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Best Price guaranteed</h4>
+              <h4 className={`${styles.infoTitle}`}>24 Hour Car delivery</h4>
               <p className={`${styles.infoSubtitle}`}>
                 Best price performance cars in baku
               </p>
@@ -40,10 +44,10 @@ const Ourservices = () => {
           </div>
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
-              <BsCash />
+              <IoMdPersonAdd />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Best Price guaranteed</h4>
+              <h4 className={`${styles.infoTitle}`}>Experienced driver</h4>
               <p className={`${styles.infoSubtitle}`}>
                 Best price performance cars in baku
               </p>
@@ -51,10 +55,10 @@ const Ourservices = () => {
           </div>
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
-              <BsCash />
+              <BiSupport />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Best Price guaranteed </h4>
+              <h4 className={`${styles.infoTitle}`}>24/7 Support </h4>
               <p className={`${styles.infoSubtitle}`}>
                 Best price performance cars in baku
               </p>
