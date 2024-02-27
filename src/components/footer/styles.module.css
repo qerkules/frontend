@@ -1,0 +1,52 @@
+.container {
+  background-color: var(--darkblue);
+  padding: 10px;
+}
+
+.connectionContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.disclaimer {
+  display: flex;
+  font-size: 6px;
+  justify-content: center;
+  align-items: center;
+  color: rgb(157, 157, 157);
+}
+
+.logoSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 75px;
+}
+
+.link {
+  color: white;
+  font-size: 8px;
+  margin-bottom: 10px;
+  font-weight: 400;
+}
+.linksSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contactSection {
+  font-size: 8px;
+  color: white;
+}
+.contactTitle {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+.contactEmail {
+  margin-bottom: 5px;
+}
