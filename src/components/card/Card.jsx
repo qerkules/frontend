@@ -18,8 +18,9 @@ const Card = ({ car }) => {
         <h2 className={`${styles.title}`}>{car.name}</h2>
         <div className={`${styles.subtitleSection}`}>
           <h4 className={`${styles.subtitle}`}>{car.class} </h4>
-          <span className={`${styles.year}`}>{car.year}&nbsp;</span>
+        
         </div>
+        <div className={`${styles.year}`}>{car.year}&nbsp;</div>
       </div>
 
       <div className={`${styles.description}`}>
