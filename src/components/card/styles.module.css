@@ -13,6 +13,7 @@
 }
 .icon{
   color: var(--blue);
+  font-size: 10px;
 }
 
 .imageSection {
@@ -39,8 +40,10 @@
   font-weight: 400;
 }
 .year {
-  font-weight: 500;
-  font-size: 12px;
+  font-weight: 400;
+  color: var(--darkblue);
+  font-size: 10px;
+  opacity: 0.8;
 }
 .description {
   display: flex;
@@ -53,9 +56,10 @@
   padding: 5px;
   border-radius: 10px;
   width: 50px;
-  font-size: 10px;
+  font-size: 8px;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: var(--darkblue);
 }
 
