@@ -1,10 +1,12 @@
 .container {
   display: flex;
-  padding: 10px;
+  padding: 5px 10px;
   padding-right: 30px;
   justify-content: space-between;
   align-items: center;
-border-bottom: 1px solid var(--darkblue);
+  background-color: var(--darkblue);
+  position: fixed;
+  width: 100%;
 }
 
 .logoSection {
@@ -18,4 +20,5 @@ border-bottom: 1px solid var(--darkblue);
 
 .icon {
   font-size: 30px;
+  color: white;
 }

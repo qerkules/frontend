@@ -2,13 +2,15 @@ import React from "react";
 import styles from "./styles.module.css";
 import CamryImg from "../../images/camry-header.png";
 import { FaAngleDoubleDown } from "react-icons/fa";
-const Header = () => {
+const Header = ({ click }) => {
+ 
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.headerSection}`}>
         <div className={`${styles.leftSide}`}>
           <h1 className={`${styles.title}`}>
-            Find, book and rent <br /> a car in Baku <span className={`${styles.highlight}`}>easily</span>
+            Find, book and rent <br /> a car in Baku{" "}
+            <span className={`${styles.highlight}`}>easily</span>
           </h1>
           <p className={`${styles.subTitle}`}>
             Search for your budget passed car and book one click,Search for your
@@ -20,7 +22,7 @@ const Header = () => {
         </div>
       </div>
       <div className={`${styles.buttonSection}`}>
-        <div className={`${styles.lookCarsBtn}`}>
+        <div className={`${styles.lookCarsBtn}`} onClick={click}>
           <span>Look Available Cars</span>{" "}
           <FaAngleDoubleDown className={`${styles.icon}`} />
         </div>

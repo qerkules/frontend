@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./styles.module.css";
 import Card from "../../components/card/Card";
 import CamryJpg from "../../images/camry.jpg";
@@ -7,8 +7,17 @@ import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
 import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
+import Footer from "../../components/footer/Footer";
 
 const Homepage = () => {
+  const ref = useRef(null);
+
+  const handleClick = () => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+
+
   const cars = [
     {
       name: "Toyota Camry",
@@ -55,15 +64,18 @@ const Homepage = () => {
   return (
     <div className={`${styles.container}`}>
       <Navbar />
-      <Header />
+      <Header click={handleClick} />
       <Ourservices />
       <BrandBanner />
-      <h4 className={`${styles.cardTitle}`}>Available Cars</h4>
+      <h4 ref={ref} className={`${styles.cardTitle}`}>
+        Available Cars
+      </h4>
       <div className={`${styles.cardContainer}`}>
         {cars.map((car) => {
           return <Card car={car} />;
         })}
       </div>
+      <Footer />
     </div>
   );
 };
