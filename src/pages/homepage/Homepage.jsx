@@ -8,6 +8,7 @@ import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
 import Footer from "../../components/footer/Footer";
 import { cars } from "../../data/data";
+import Whatsapp from "../../components/whatsapp/Whatsapp";
 
 const Homepage = () => {
   const ref = useRef(null);
@@ -34,6 +35,7 @@ const Homepage = () => {
         </div>
       </div>
       <Footer />
+      <Whatsapp/>
     </div>
   );
 };
