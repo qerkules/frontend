@@ -35,7 +35,6 @@ const Homepage = () => {
         </div>
       </div>
       <Footer />
-      <Whatsapp/>
     </div>
   );
 };
