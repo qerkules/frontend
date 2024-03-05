@@ -19,7 +19,6 @@ const Homepage = () => {
 
   return (
     <div className={`${styles.container}`}>
-      <Navbar />
       <Header click={handleClick} />
       <Ourservices />
       <BrandBanner />
@@ -33,8 +32,11 @@ const Homepage = () => {
             return <Card car={car} />;
           })}
         </div>
+
+        <div className={`${styles.btnContainer}`}>
+          <div className={`${styles.showAllCarsBtn}`}>Show All Cars</div>
+        </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -120,7 +120,37 @@
   margin-bottom: 15px;
 }
 
-.featureIcon{
+.featureIcon {
   font-size: 25px;
   font-weight: 400;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cardTitle {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.cardSection {
+  margin-bottom: 30px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showAllCarsBtn {
+  padding: 7.5px 12.5px;
+  background-color: var(--orange);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
 }

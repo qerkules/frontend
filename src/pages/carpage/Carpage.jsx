@@ -21,11 +21,12 @@ import HeatedSeat from "./icons/HeatedSeat.jsx";
 import BackCamera from "./icons/BackCamera.jsx";
 import Insurance from "./icons/Insurance.jsx";
 import Transmission from "./icons/Transmission.jsx";
+import Card from "../../components/card/Card.jsx";
+import { cars } from "../../data/data";
 
 const Carpage = () => {
   return (
     <div className={`${styles.container}`}>
-      <Navbar />
 
       <div className={`${styles.swiperContainer}`}>
         <Swiper
@@ -140,8 +141,18 @@ const Carpage = () => {
           <span>Apple & Android CarPlay</span>
         </div>
       </div>
+      <div className={`${styles.cardSection}`}>
+        <h4 className={`${styles.cardTitle}`}>Available Cars</h4>
+        <div className={`${styles.cardContainer}`}>
+          {cars.map((car) => {
+            return <Card car={car} />;
+          })}
+        </div>
+        <div className={`${styles.btnContainer}`}>
+          <div className={`${styles.showAllCarsBtn}`}>Show All Cars</div>
+        </div>
+      </div>
 
-      <Footer />
     </div>
   );
 };

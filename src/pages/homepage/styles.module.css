@@ -15,3 +15,18 @@
 .cardSection {
   margin-bottom: 30px;
 }
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showAllCarsBtn {
+  padding: 7.5px 12.5px;
+  background-color: var(--orange);
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  display: inline-block;
+}

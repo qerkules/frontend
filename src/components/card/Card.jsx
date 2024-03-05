@@ -18,7 +18,6 @@ const Card = ({ car }) => {
         <h2 className={`${styles.title}`}>{car.name}</h2>
         <div className={`${styles.subtitleSection}`}>
           <h4 className={`${styles.subtitle}`}>{car.class} </h4>
-        
         </div>
         <div className={`${styles.year}`}>{car.year}&nbsp;</div>
       </div>
@@ -43,14 +42,7 @@ const Card = ({ car }) => {
         <div className={`${styles.price}`}>
           &nbsp;${car.price} <span className={`${styles.day}`}>/day</span>{" "}
         </div>
-        <div
-          className={`${styles.bookNow}`}
-          onClick={() => {
-            navigate(car.link);
-          }}
-        >
-          More Info
-        </div>
+        <a className={`${styles.bookNow}`} href="/cars">More Info</a>
       </div>
     </div>
   );
