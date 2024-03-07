@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) =>
     },
   })
 );
-const Booking = () => {
+const Booking = ({ click }) => {
   const [value, setValue] = React.useState();
 
   const classes = useStyles();
@@ -29,7 +29,9 @@ const Booking = () => {
     <div className={`${styles.container}`}>
       <div className={`${styles.contentContainer}`}>
         <div className={`${styles.closeBtnContainer}`}>
-          <div className={`${styles.closeBtn}`}>X</div>
+          <div className={`${styles.closeBtn}`} onClick={click}>
+            X
+          </div>
         </div>
 
         <div className={`${styles.carName}`}>Toyota Camry 2020</div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -10,8 +10,6 @@ import { FaCar } from "react-icons/fa";
 import { GiCarDoor } from "react-icons/gi";
 import { PiEngineFill } from "react-icons/pi";
 import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
-import Navbar from "../../components/navbar/Navbar";
-import Footer from "../../components/footer/Footer";
 import UsbInput from "./icons/UsbInput.jsx";
 import UsbCharger from "./icons/UsbCharger.jsx";
 import Carplay from "./icons/Carplay.jsx";
@@ -23,11 +21,18 @@ import Insurance from "./icons/Insurance.jsx";
 import Transmission from "./icons/Transmission.jsx";
 import Card from "../../components/card/Card.jsx";
 import { cars } from "../../data/data";
+import Booking from "../../components/booking/Booking.jsx";
 
 const Carpage = () => {
-  return (
-    <div className={`${styles.container}`}>
+  const [isOpen, setStatus] = useState(false);
 
+  const handleClick = () => {
+    setStatus(!isOpen);
+  };
+
+  const bookingComponent = <Booking click={handleClick} />;
+  const mainComponent = (
+    <div className={`${styles.container}`}>
       <div className={`${styles.swiperContainer}`}>
         <Swiper
           pagination={{
@@ -88,7 +93,14 @@ const Carpage = () => {
             *More days will be calculated with discounted price
           </p>
         </div>
-        <div className={`${styles.bookNow}`}>Book Now</div>
+        <div
+          className={`${styles.bookNow}`}
+          onClick={() => {
+            handleClick();
+          }}
+        >
+          Book Now
+        </div>
       </div>
 
       <div className={`${styles.aboutCar}`}>
@@ -148,13 +160,15 @@ const Carpage = () => {
             return <Card car={car} />;
           })}
         </div>
-        <div className={`${styles.btnContainer}`}>
-          <div className={`${styles.showAllCarsBtn}`}>Show All Cars</div>
-        </div>
       </div>
-
     </div>
   );
+
+  if (isOpen) {
+    return bookingComponent;
+  } else {
+    return mainComponent;
+  }
 };
 
 export default Carpage;
