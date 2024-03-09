@@ -7,23 +7,10 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import { createStyles, makeStyles } from "@mui/styles";
 import { TextField } from "@mui/material";
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    smallRadioButton: {
-      "& svg": {
-        width: "18px",
-        height: "18px",
-      },
-    },
-  })
-);
 const Booking = ({ click }) => {
   const [value, setValue] = React.useState();
-
-  const classes = useStyles();
 
   return (
     <div className={`${styles.container}`}>
@@ -56,13 +43,23 @@ const Booking = ({ click }) => {
                 value="Airport"
                 control={<Radio />}
                 label="Airport"
-                className={classes.smallRadioButton}
+                sx={{
+                  "& svg": {
+                    width: "18px",
+                    height: "18px",
+                  },
+                }}
               />
               <FormControlLabel
                 value="Hotel"
                 control={<Radio />}
                 label="Hotel"
-                className={classes.smallRadioButton}
+                sx={{
+                  "& svg": {
+                    width: "18px",
+                    height: "18px",
+                  },
+                }}
               />
             </RadioGroup>
           </FormControl>
@@ -89,13 +86,23 @@ const Booking = ({ click }) => {
                 value="Airport"
                 control={<Radio />}
                 label="Airport"
-                className={classes.smallRadioButton}
+                sx={{
+                  "& svg": {
+                    width: "18px",
+                    height: "18px",
+                  },
+                }}
               />
               <FormControlLabel
                 value="Hotel"
                 control={<Radio />}
                 label="Hotel"
-                className={classes.smallRadioButton}
+                sx={{
+                  "& svg": {
+                    width: "18px",
+                    height: "18px",
+                  },
+                }}
               />
             </RadioGroup>
           </FormControl>
@@ -106,13 +113,13 @@ const Booking = ({ click }) => {
         <div className={`${styles.dFlex}`}>
           <TextField
             id="standard-basic"
-            label="Standard"
+            label="Name"
             variant="standard"
             className={`${styles.mRight} ${styles.mWidth}`}
           />
           <TextField
             id="standard-basic"
-            label="Standard"
+            label="Surname"
             variant="standard"
             className={`${styles.mWidth}`}
           />
@@ -121,13 +128,13 @@ const Booking = ({ click }) => {
         <div className={`${styles.dFlex}`}>
           <TextField
             id="standard-basic"
-            label="Standard"
+            label="Whatsapp Number"
             variant="standard"
             className={`${styles.mRight} ${styles.mWidth}`}
           />
           <TextField
             id="standard-basic"
-            label="Standard"
+            label="Email"
             variant="standard"
             className={`${styles.mWidth}`}
           />
