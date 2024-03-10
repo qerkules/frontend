@@ -22,9 +22,14 @@ import Transmission from "./icons/Transmission.jsx";
 import Card from "../../components/card/Card.jsx";
 import { cars } from "../../data/data";
 import Booking from "../../components/booking/Booking.jsx";
+import { useGetCarByIdQuery, useGetCarsQuery } from "../../state/api.js";
 
 const Carpage = () => {
   const [isOpen, setStatus] = useState(false);
+
+  const { data, isLoading } = useGetCarByIdQuery("77DX810");
+
+  console.log(data);
 
   const handleClick = () => {
     setStatus(!isOpen);
@@ -43,7 +48,7 @@ const Carpage = () => {
           className={`${styles.mySwiper}`}
         >
           <SwiperSlide className={`${styles.swiperSlide}`}>
-            <img src={CamryImg} alt="" />
+            <img src="https://i.ibb.co/s3mb3w0/porsche.jpg" alt="" className={`${styles.image}`}/>
           </SwiperSlide>
           <SwiperSlide className={`${styles.swiperSlide}`}>
             <img src={ElantraImg} alt="" />
@@ -52,42 +57,46 @@ const Carpage = () => {
       </div>
       <div className={`${styles.titleSection}`}>
         <h1 className={`${styles.title}`}>Rent a car in Baku</h1>
-        <h2 className={`${styles.carName}`}>Toyota Camry 2020</h2>
-        <h3 className={`${styles.class}`}>Premium Class</h3>
+        <h2 className={`${styles.carName}`}>
+          {data && data.brand + " " + data.model + " " + data.year}
+        </h2>
+        <h3 className={`${styles.class}`}>{data && data.class}</h3>
       </div>
 
       <div className={`${styles.description}`}>
         <div className={`${styles.box}`}>
-          <FaCar className={`${styles.icon}`} /> &nbsp;&nbsp; <span>Suv</span>
+          <FaCar className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
+          <span>{data && data.mainDetails.type}</span>
         </div>
         <div className={`${styles.box}`}>
           <FaGasPump className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-          <span>Gas</span>
+          <span>{data && data.mainDetails.fuel}</span>
         </div>
         <div className={`${styles.box}`}>
           <TbManualGearbox className={`${styles.icon}`} />
           &nbsp;&nbsp;
-          <span>Auto</span>
+          <span>{data && data.mainDetails.transmission}</span>
         </div>
         <div className={`${styles.box}`}>
           <GiCarDoor className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-          <span>4 Door</span>
+          <span>{data && data.mainDetails.doors}</span>
         </div>
         <div className={`${styles.box}`}>
           <PiEngineFill className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-          <span>2.5 L</span>
+          <span>{data && data.mainDetails.engine}</span>
         </div>
         <div className={`${styles.box}`}>
           <MdOutlineAirlineSeatReclineExtra className={`${styles.icon}`} />
           &nbsp;&nbsp;
-          <span>5 Seater</span>
+          <span>{data && data.mainDetails.seats}</span>
         </div>
       </div>
 
       <div className={`${styles.priceSection}`}>
         <div>
           <div className={`${styles.price}`}>
-            &nbsp;$ 100<span className={`${styles.day}`}>/day</span>{" "}
+            &nbsp;$ {data && data.priceUsd}
+            <span className={`${styles.day}`}>/day</span>{" "}
           </div>
           <p className={`${styles.tip}`}>
             *More days will be calculated with discounted price
