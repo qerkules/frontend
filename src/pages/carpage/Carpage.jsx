@@ -29,8 +29,6 @@ const Carpage = () => {
 
   const { data, isLoading } = useGetCarByIdQuery("77DX810");
 
-  console.log(data);
-
   const handleClick = () => {
     setStatus(!isOpen);
   };

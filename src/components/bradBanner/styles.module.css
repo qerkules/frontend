@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
+  background-color: var(--lightblue);
+  padding: 20px 0px;
 }
 
 .margin {

@@ -5,13 +5,16 @@ import { Ri24HoursFill } from "react-icons/ri";
 import { BiSupport } from "react-icons/bi";
 import { IoMdPersonAdd } from "react-icons/io";
 import { MdLocalAirport } from "react-icons/md";
+import SectionImg from "../../images/sectionimg.png";
 
 const Ourservices = () => {
   return (
     <div className={`${styles.container}`}>
-      <div className={`${styles.imageSection}`}>
-        <img src="" alt="" className={`${styles.image}`} />
+      
+      <div className={`${styles.sectionImgContainer}`}>
+        <img src={SectionImg} alt="" className={`${styles.sectionImg}`} />
       </div>
+
       <div className={`${styles.detailsSection}`}>
         <div className={`${styles.whyChoose}`}>
           <p>Why Choose Us</p>
@@ -19,7 +22,6 @@ const Ourservices = () => {
         <h2 className={`${styles.title}`}>
           We offer the best rental experience with rental deals
         </h2>
-
         <div className={`${styles.infoSection}`}>
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
@@ -43,7 +45,6 @@ const Ourservices = () => {
               </p>
             </div>
           </div>
-
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
               <Ri24HoursFill />

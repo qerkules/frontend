@@ -64,3 +64,43 @@
   font-size: 12px;
   color: var(--subtitle);
 }
+
+.sectionImgContainer {
+  background: rgb(0, 0, 237);
+  background: radial-gradient(
+    circle,
+    var(--blue) 0%,
+    rgba(255, 255, 255, 1) 50%
+  );
+  flex: 1;
+}
+
+.sectionImg {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 50px 0px   ;
+  }
+
+  .detailsSection {
+    flex: 1;
+  }
+  
+  .sectionImgContainer{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top:30px ;
+
+  }
+  .sectionImg{
+    width: 500px;
+  }
+}
+

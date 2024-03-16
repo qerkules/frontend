@@ -1,14 +1,10 @@
 import React, { useRef } from "react";
 import styles from "./styles.module.css";
 import Card from "../../components/card/Card";
-
 import Header from "../../components/header/Header";
-import Navbar from "../../components/navbar/Navbar";
 import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
-import Footer from "../../components/footer/Footer";
 import { cars } from "../../data/data";
-import Whatsapp from "../../components/whatsapp/Whatsapp";
 
 const Homepage = () => {
   const ref = useRef(null);
