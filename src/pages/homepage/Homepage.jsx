@@ -22,6 +22,12 @@ const Homepage = () => {
         <h4 ref={ref} className={`${styles.cardTitle}`}>
           Available Cars
         </h4>
+        <div className={`${styles.classSection}`}>
+          <div className={`${styles.classContainer} ${styles.selected}`}>Econom Rent a car</div>
+          <div className={`${styles.classContainer}`}>Middle Rent a car</div>
+          <div className={`${styles.classContainer}`}>Premium Rent a car</div>
+          <div className={`${styles.classContainer}`}>Suv Rent a car</div>
+        </div>
 
         <div className={`${styles.cardContainer}`}>
           {cars.map((car) => {

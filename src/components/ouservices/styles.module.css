@@ -79,28 +79,54 @@
   width: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
   .container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 50px 0px   ;
+    padding: 50px 0px;
   }
 
   .detailsSection {
     flex: 1;
   }
-  
-  .sectionImgContainer{
+
+  .sectionImgContainer {
     width: 500px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    padding-top:30px ;
-
+    padding-top: 30px;
   }
-  .sectionImg{
+  .sectionImg {
     width: 500px;
   }
+
 }
 
+@media (min-width: 450px) and (max-width: 960px) {
+  .sectionImg {
+    width: 400px;
+  }
+
+  .sectionImgContainer {
+    background: rgb(0, 0, 237);
+    background: radial-gradient(
+      circle,
+      var(--blue) 0%,
+      rgba(255, 255, 255, 1) 40%
+    );
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .detailsSection {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+  }
+
+}

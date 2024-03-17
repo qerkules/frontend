@@ -1,5 +1,4 @@
 .container {
-
   padding-top: 35px;
   padding-bottom: 0px;
   background-color: var(--lightblue);
@@ -53,7 +52,7 @@
   margin-left: 10px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
   .image {
     width: 500px;
   }
@@ -71,13 +70,31 @@
     align-items: center;
   }
 
-  .title{
+  .title {
     font-size: 45px;
   }
 
-  .subTitle{
+  .subTitle {
     width: 418px;
   }
+}
 
-
+@media (min-width: 450px) and (max-width: 960px) {
+  .image {
+    width: 400px;
+  }
+  .rightSide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .subTitle {
+    width: 300px;
+  }
 }
