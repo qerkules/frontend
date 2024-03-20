@@ -97,6 +97,7 @@
   border-radius: 10px;
   font-size: 20px;
 }
+
 .day {
   font-size: 14px;
 }
@@ -130,12 +131,14 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
+
 .cardTitle {
   text-align: center;
   font-size: 32px;
   margin-bottom: 20px;
   font-weight: 400;
 }
+
 .cardSection {
   margin-bottom: 30px;
 }
@@ -155,7 +158,45 @@
   display: inline-block;
 }
 
-.image{
+.image {
   width: 100%;
-  
+}
+
+@media screen and (min-width: 960px) {
+  .leftSection {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+
+  .rightSection {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 7;
+    grid-column-end: 12;
+    padding-top: 20px;
+  }
+
+  .desktopVersion {
+    display: grid;
+    width: 100%;
+    gap: 10px;
+  }
+  .swiperContainer {
+    max-width: 800px;
+  }
+
+  .container {
+    padding: 50px 50px;
+  }
+
+  .mySwiper {
+    height: 500px;
+  }
+  .icon{
+    font-size: 14px;
+  }
+  .tip{
+    font-size: 10px;
+    margin-top: 5px;
+  }
 }
