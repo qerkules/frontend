@@ -20,14 +20,14 @@ import BackCamera from "./icons/BackCamera.jsx";
 import Insurance from "./icons/Insurance.jsx";
 import Transmission from "./icons/Transmission.jsx";
 import Card from "../../components/card/Card.jsx";
-import { cars } from "../../data/data";
 import Booking from "../../components/booking/Booking.jsx";
 import { useGetCarByIdQuery, useGetCarsQuery } from "../../state/api.js";
 
 const Carpage = () => {
   const [isOpen, setStatus] = useState(false);
-
-  const { data, isLoading } = useGetCarByIdQuery("77DX810");
+  const carNumber = window.location.pathname.slice(6, 13);
+  const { data, isLoading } = useGetCarByIdQuery(carNumber);
+  const { data: cars, isLoading: loading } = useGetCarsQuery();
 
   const handleClick = () => {
     setStatus(!isOpen);
@@ -47,16 +47,18 @@ const Carpage = () => {
               modules={[Pagination, Navigation]}
               className={`${styles.mySwiper}`}
             >
-              <SwiperSlide className={`${styles.swiperSlide}`}>
-                <img
-                  src="https://i.ibb.co/s3mb3w0/porsche.jpg"
-                  alt=""
-                  className={`${styles.image}`}
-                />
-              </SwiperSlide>
-              <SwiperSlide className={`${styles.swiperSlide}`}>
-                <img src={ElantraImg} alt="" />
-              </SwiperSlide>
+              {data &&
+                data.images.map((image) => {
+                  return (
+                    <SwiperSlide className={`${styles.swiperSlide}`}>
+                      <img
+                        src={`${image}`}
+                        alt=""
+                        className={`${styles.image}`}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
             </Swiper>
           </div>
         </div>
@@ -174,9 +176,10 @@ const Carpage = () => {
       <div className={`${styles.cardSection}`}>
         <h4 className={`${styles.cardTitle}`}>Available Cars</h4>
         <div className={`${styles.cardContainer}`}>
-          {cars.map((car) => {
-            return <Card car={car} />;
-          })}
+          {cars &&
+            cars.map((car) => {
+              return <Card car={car} />;
+            })}
         </div>
       </div>
     </div>

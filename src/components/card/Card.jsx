@@ -11,11 +11,13 @@ const Card = ({ car }) => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
-        <img src={car.photo} alt="" className={`${styles.image}`} />
+        <img src={car.images[0]} alt="" className={`${styles.image}`} />
       </div>
 
       <div className={`${styles.titleSection}`}>
-        <h2 className={`${styles.title}`}>{car.name}</h2>
+        <h2 className={`${styles.title}`}>
+          {car.brand} {car.model}{" "}
+        </h2>
         <div className={`${styles.subtitleSection}`}>
           <h4 className={`${styles.subtitle}`}>{car.class} </h4>
         </div>
@@ -25,24 +27,33 @@ const Card = ({ car }) => {
       <div className={`${styles.description}`}>
         <div className={`${styles.box}`}>
           <FaCar className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-          <span>{car.type}</span>
+          <span>{car.mainDetails.type}</span>
         </div>
+
         <div className={`${styles.box}`}>
           <FaGasPump className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-          <span>{car.fuel}</span>
+          <span>{car.mainDetails.fuel}</span>
         </div>
+        
         <div className={`${styles.box}`}>
           <TbManualGearbox className={`${styles.icon}`} />
           &nbsp;&nbsp;
-          <span>Auto</span>
+          <span>{car.mainDetails.transmission}</span>
         </div>
       </div>
 
       <div className={`${styles.priceSection}`}>
         <div className={`${styles.price}`}>
-          &nbsp;${car.price} <span className={`${styles.day}`}>/day</span>{" "}
+          &nbsp;${car.priceUsd} <span className={`${styles.day}`}>/day</span>{" "}
         </div>
-        <a className={`${styles.bookNow}`} href="/cars">More Info</a>
+        <div
+          className={`${styles.bookNow}`}
+          onClick={() => {
+            navigate(`/cars/${car.number}`);
+          }}
+        >
+          More Info
+        </div>
       </div>
     </div>
   );

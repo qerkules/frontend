@@ -7,7 +7,6 @@ export const api = createApi({
   endpoints: (build) => ({
     getCars: build.query({
       query: (payload) => {
-        console.log(payload);
         return {
           url: "/car/",
           params: { payload },
@@ -17,9 +16,18 @@ export const api = createApi({
     }),
     getCarById: build.query({
       query: (payload) => {
+        console.log(payload);
         return {
-          url: "/car/",
-          params: { number: payload },
+          url: `/car/${payload}`,
+        };
+      },
+      providesTags: ["Cars"],
+    }),
+    getCarsByClass: build.query({
+      query: (payload) => {
+        console.log(payload);
+        return {
+          url: `/car/filter/${payload}`,
         };
       },
       providesTags: ["Cars"],
@@ -27,4 +35,5 @@ export const api = createApi({
   }),
 });
 
-export const { useGetCarsQuery, useGetCarByIdQuery } = api;
+export const { useGetCarsQuery, useGetCarByIdQuery, useGetCarsByClassQuery } =
+  api;

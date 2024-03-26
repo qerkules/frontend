@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/cars" element={<Carpage />} />
+        <Route path="/cars/:number" element={<Carpage />} />
         <Route path="/allcars" element={<Allcars />} />
       </Routes>
       <Whatsapp />
