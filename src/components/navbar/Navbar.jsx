@@ -9,9 +9,6 @@ const Navbar = () => {
       <div className={`${styles.logoSection}`}>
         <img src={Logo} alt="" className={`${styles.logo}`} />
       </div>
-      <div>
-        <RxHamburgerMenu className={`${styles.icon}`} />
-      </div>
     </div>
   );
 };
