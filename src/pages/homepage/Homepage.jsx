@@ -4,7 +4,6 @@ import Card from "../../components/card/Card";
 import Header from "../../components/header/Header";
 import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
-import { allcars } from "../../data/data";
 import { useGetCarsByClassQuery, useGetCarsQuery } from "../../state/api";
 
 const Homepage = () => {
@@ -20,13 +19,6 @@ const Homepage = () => {
     useGetCarsByClassQuery(selectedClass);
 
   console.log(classes);
-  const filterClass = (className) => {
-    allcars = allcars.filter((car) => {
-      if (car.class === className) {
-        return car;
-      }
-    });
-  };
 
   return (
     <div className={`${styles.container}`}>

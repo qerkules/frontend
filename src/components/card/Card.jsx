@@ -34,7 +34,7 @@ const Card = ({ car }) => {
           <FaGasPump className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
           <span>{car.mainDetails.fuel}</span>
         </div>
-        
+
         <div className={`${styles.box}`}>
           <TbManualGearbox className={`${styles.icon}`} />
           &nbsp;&nbsp;
@@ -46,14 +46,9 @@ const Card = ({ car }) => {
         <div className={`${styles.price}`}>
           &nbsp;${car.priceUsd} <span className={`${styles.day}`}>/day</span>{" "}
         </div>
-        <div
-          className={`${styles.bookNow}`}
-          onClick={() => {
-            navigate(`/cars/${car.number}`);
-          }}
-        >
+        <a className={`${styles.bookNow}`} href={`/cars/${car.number}`}>
           More Info
-        </div>
+        </a>
       </div>
     </div>
   );

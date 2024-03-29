@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./styles.module.css";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -7,10 +7,73 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
-import { TextField } from "@mui/material";
+import { Checkbox, FormGroup, TextField } from "@mui/material";
+import emailjs from "@emailjs/browser";
 
-const Booking = ({ click }) => {
-  const [value, setValue] = React.useState();
+const Booking = ({ click, carName }) => {
+  const [pickUpDate, setPickUpDate] = React.useState();
+  const [returnDate, setReturnDate] = React.useState();
+  const [pickUpLocation, setPickUpLocation] = React.useState();
+  const [returnLocation, setReturnLocation] = React.useState();
+  const [name, setName] = React.useState("");
+  const [surname, setSurname] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [email, setEmail] = React.useState("");
+
+  const [returnDateError, setReturnDateError] = React.useState();
+  const [returnLocationError, setReturnLocationError] = React.useState();
+  const [pickUpDateError, setPickUpDateError] = React.useState();
+  const [pickUpLocationError, setPickUpLocationError] = React.useState();
+  const [nameError, setNameError] = React.useState("");
+  const [surnameError, setSurnameError] = React.useState("");
+  const [phoneNumberError, setPhoneNumberError] = React.useState("");
+  const [emailError, setEmailError] = React.useState("");
+
+  useEffect(() => emailjs.init(process.env.EMAILJS_PUBLIC_KEY), []);
+
+  useEffect(() => {}, [pickUpDate, returnDate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+
+    !email ? setEmailError("please insert email") : setEmailError("");
+    !pickUpDate
+      ? setPickUpDateError("please insert pick-up date")
+      : setPickUpDateError("");
+    !returnDate
+      ? setReturnDateError("please insert return date")
+      : setReturnDateError("");
+    !pickUpLocation
+      ? setPickUpLocationError("please select pick up location")
+      : setPickUpLocationError("");
+    !returnLocation
+      ? setReturnLocationError("please select return location")
+      : setReturnLocationError("");
+    !name ? setNameError("please insert name") : setNameError("");
+    !surname ? setSurnameError("please insert surname") : setSurnameError("");
+    !phoneNumber
+      ? setPhoneNumberError("please insert Whatsapp Number")
+      : setPhoneNumberError("");
+
+    try {
+      await emailjs.send(serviceId, templateId, {
+        car: carName,
+        name: name,
+        surname: surname,
+        phoneNumber: phoneNumber,
+        email: email,
+        pickUpDate: pickUpDate,
+        pickUpLocation: pickUpLocation,
+        returnDate: returnDate,
+        returnLocation: returnLocation,
+      });
+      alert("email successfully sent check inbox");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={`${styles.container}`}>
@@ -21,135 +84,176 @@ const Booking = ({ click }) => {
           </div>
         </div>
 
-        <div className={`${styles.carName}`}>Toyota Camry 2020</div>
+        <div className={`${styles.carName}`}>{carName}</div>
 
-        <div className={`${styles.pickupSection}`}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label="Pick up Date"
-              value={value}
-              onChange={(newValue) => setValue(newValue)}
-              sx={{ width: 170 }}
+        <FormGroup>
+          <div className={`${styles.pickupSection}`}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Pick up Date"
+                onChange={(newValue) => {
+                  setPickUpDate(newValue.$d.toString().slice(4, 15));
+                }}
+                sx={{ width: 170 }}
+                required
+                error={!!pickUpDateError}
+                helperText={pickUpDateError}
+              />
+            </LocalizationProvider>
+
+            <FormControl>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                required
+                error={!!pickUpLocationError}
+                helperText={pickUpLocationError}
+              >
+                <FormControlLabel
+                  label="Airport"
+                  control={<Radio />}
+                  value="Airport"
+                  onChange={() => setPickUpLocation("Airport")}
+                  sx={{
+                    "& svg": {
+                      width: "18px",
+                      height: "18px",
+                    },
+                  }}
+                />
+                <FormControlLabel
+                  value="Hotel"
+                  onChange={() => setPickUpLocation("Hotel")}
+                  control={<Radio />}
+                  label="Hotel"
+                  sx={{
+                    "& svg": {
+                      width: "18px",
+                      height: "18px",
+                    },
+                  }}
+                />
+              </RadioGroup>
+            </FormControl>
+          </div>
+
+          <div className={`${styles.pickupSection}`}>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker
+                label="Return Date"
+                sx={{ width: 170 }}
+                variant="standart"
+                onChange={(newValue) => {
+                  setReturnDate(newValue.$d.toString().slice(4, 15));
+                }}
+                required
+              />
+            </LocalizationProvider>
+
+            <FormControl>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+                required
+              >
+                <FormControlLabel
+                  value="Airport"
+                  onChange={() => setReturnLocation("Airport")}
+                  control={<Radio />}
+                  label="Airport"
+                  sx={{
+                    "& svg": {
+                      width: "18px",
+                      height: "18px",
+                    },
+                  }}
+                />
+                <FormControlLabel
+                  value="Hotel"
+                  onChange={() => setReturnLocation("Hotel")}
+                  control={<Radio />}
+                  label="Hotel"
+                  sx={{
+                    "& svg": {
+                      width: "18px",
+                      height: "18px",
+                    },
+                  }}
+                />
+              </RadioGroup>
+            </FormControl>
+          </div>
+
+          <div>Contact Information</div>
+
+          <div className={`${styles.dFlex}`}>
+            <TextField
+              id="standard-basic"
+              label="Name"
+              variant="standard"
+              className={`${styles.mRight} ${styles.mWidth}`}
+              value={name}
+              onChange={(newValue) => {
+                setName(newValue.target.value);
+              }}
+              required
+              error={!!nameError}
+              helperText={nameError}
             />
-          </LocalizationProvider>
-
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel
-                value="Airport"
-                control={<Radio />}
-                label="Airport"
-                sx={{
-                  "& svg": {
-                    width: "18px",
-                    height: "18px",
-                  },
-                }}
-              />
-              <FormControlLabel
-                value="Hotel"
-                control={<Radio />}
-                label="Hotel"
-                sx={{
-                  "& svg": {
-                    width: "18px",
-                    height: "18px",
-                  },
-                }}
-              />
-            </RadioGroup>
-          </FormControl>
-        </div>
-
-        <div className={`${styles.pickupSection}`}>
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label="Pick up Date"
-              value={value}
-              onChange={(newValue) => setValue(newValue)}
-              sx={{ width: 170 }}
-              variant="standart"
+            <TextField
+              id="standard-basic"
+              label="Surname"
+              variant="standard"
+              className={`${styles.mWidth}`}
+              value={surname}
+              onChange={(newValue) => setSurname(newValue.target.value)}
+              required
+              error={!!surnameError}
+              helperText={surnameError}
             />
-          </LocalizationProvider>
+          </div>
 
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-            >
-              <FormControlLabel
-                value="Airport"
-                control={<Radio />}
-                label="Airport"
-                sx={{
-                  "& svg": {
-                    width: "18px",
-                    height: "18px",
-                  },
-                }}
-              />
-              <FormControlLabel
-                value="Hotel"
-                control={<Radio />}
-                label="Hotel"
-                sx={{
-                  "& svg": {
-                    width: "18px",
-                    height: "18px",
-                  },
-                }}
-              />
-            </RadioGroup>
-          </FormControl>
-        </div>
-
-        <div>Contact Information</div>
-
-        <div className={`${styles.dFlex}`}>
-          <TextField
-            id="standard-basic"
-            label="Name"
-            variant="standard"
-            className={`${styles.mRight} ${styles.mWidth}`}
-          />
-          <TextField
-            id="standard-basic"
-            label="Surname"
-            variant="standard"
-            className={`${styles.mWidth}`}
-          />
-        </div>
-
-        <div className={`${styles.dFlex}`}>
-          <TextField
-            id="standard-basic"
-            label="Whatsapp Number"
-            variant="standard"
-            className={`${styles.mRight} ${styles.mWidth}`}
-          />
-          <TextField
-            id="standard-basic"
-            label="Email"
-            variant="standard"
-            className={`${styles.mWidth}`}
-          />
-        </div>
-
-        <div className={`${styles.dFlex}`}>
-          <TextField
-            id="standard-basic"
-            label="Age"
-            variant="standard"
-            className={`${styles.ageSelect}`}
-          />
-        </div>
-
-        <div className={`${styles.bookNow}`}>Book Now</div>
+          <div className={`${styles.dFlex}`}>
+            <TextField
+              id="standard-basic"
+              label="Whatsapp Number"
+              variant="standard"
+              className={`${styles.mRight} ${styles.mWidth}`}
+              value={phoneNumber}
+              onChange={(newValue) => setPhoneNumber(newValue.target.value)}
+              required
+              error={!!phoneNumberError}
+              helperText={phoneNumberError}
+            />
+            <TextField
+              id="standard-basic"
+              label="Email"
+              variant="standard"
+              className={`${styles.mWidth}`}
+              value={email}
+              onChange={(value) => {
+                console.log(email);
+                setEmail(value.target.value);
+              }}
+              autoComplete="email"
+              error={!!emailError}
+              helperText={emailError}
+              required
+            />
+          </div>
+          <div className={`${styles.dFlex}`}>
+            <FormControlLabel
+              required
+              control={<Checkbox />}
+              label="i am over 19 years old "
+            />
+          </div>
+          <div className={`${styles.bookNow}`} onClick={handleSubmit}>
+            Book Now
+          </div>
+        </FormGroup>
       </div>
     </div>
   );

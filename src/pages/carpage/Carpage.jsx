@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import styles from "./styles.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-import CamryImg from "../../images/camry.jpg";
-import ElantraImg from "../../images/elantra.jpg";
+import CamryImg from "../../images/camry.png";
+import Camry2Img from "../../images/camry2.png";
+import Camry3Img from "../../images/camry3.png";
 import { FaGasPump } from "react-icons/fa6";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaCar } from "react-icons/fa";
@@ -13,7 +14,6 @@ import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
 import UsbInput from "./icons/UsbInput.jsx";
 import UsbCharger from "./icons/UsbCharger.jsx";
 import Carplay from "./icons/Carplay.jsx";
-import AllWheel from "./icons/AllWheel.jsx";
 import Bluetooth from "./icons/Bluetooth.jsx";
 import HeatedSeat from "./icons/HeatedSeat.jsx";
 import BackCamera from "./icons/BackCamera.jsx";
@@ -33,7 +33,13 @@ const Carpage = () => {
     setStatus(!isOpen);
   };
 
-  const bookingComponent = <Booking click={handleClick} />;
+  const bookingComponent = (
+    <Booking
+      click={handleClick}
+      carName={data && data.brand + " " + data.model}
+      carPrice={data && data.priceUsd}
+    />
+  );
   const mainComponent = (
     <div className={`${styles.container}`}>
       <div className={`${styles.desktopVersion}`}>
@@ -139,37 +145,35 @@ const Carpage = () => {
               &nbsp;&nbsp;
               <span>USB charger</span>
             </div>
-            <div className={`${styles.carFeature}`}>
-              <HeatedSeat className={`${styles.featureIcon}`} />
-              &nbsp;&nbsp;
-              <span>Heated Seats</span>
-            </div>
+            {data && data.brand + " " + data.model !== "Toyota Camry" && (
+              <div className={`${styles.carFeature}`}>
+                <HeatedSeat className={`${styles.featureIcon}`} />
+                &nbsp;&nbsp;
+                <span>Heated Seats</span>
+              </div>
+            )}
             <div className={`${styles.carFeature}`}>
               <BackCamera className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
               <span>Backup camera</span>
             </div>
             <div className={`${styles.carFeature}`}>
-              <AllWheel className={`${styles.featureIcon}`} />
-              &nbsp;&nbsp;
-              <span>Rear-wheel drive</span>
-            </div>
-
-            <div className={`${styles.carFeature}`}>
               <Insurance className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>Regular Insurance</span>
+              <span>Casco Insurance</span>
             </div>
             <div className={`${styles.carFeature}`}>
               <Transmission className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
               <span>Automatic transmission</span>
             </div>
-            <div className={`${styles.carFeature}`}>
-              <Carplay className={`${styles.featureIcon}`} />
-              &nbsp;&nbsp;
-              <span>Apple & Android CarPlay</span>
-            </div>
+            {data && Number(data.year) > 2016 && (
+              <div className={`${styles.carFeature}`}>
+                <Carplay className={`${styles.featureIcon}`} />
+                &nbsp;&nbsp;
+                <span>Apple & Android CarPlay</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
