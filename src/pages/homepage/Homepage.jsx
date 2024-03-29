@@ -18,8 +18,6 @@ const Homepage = () => {
   const { data: classes, isLoading: loading } =
     useGetCarsByClassQuery(selectedClass);
 
-  console.log(classes);
-
   return (
     <div className={`${styles.container}`}>
       <Header click={handleClick} />

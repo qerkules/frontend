@@ -16,7 +16,6 @@ export const api = createApi({
     }),
     getCarById: build.query({
       query: (payload) => {
-        console.log(payload);
         return {
           url: `/car/${payload}`,
         };
