@@ -24,7 +24,6 @@ export const api = createApi({
     }),
     getCarsByClass: build.query({
       query: (payload) => {
-        console.log(payload);
         return {
           url: `/car/filter/${payload}`,
         };
