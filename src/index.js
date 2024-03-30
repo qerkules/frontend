@@ -6,6 +6,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { api } from "./state/api.js";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const store = configureStore({
   reducer: {
@@ -21,6 +22,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
+      <SpeedInsights />
     </Provider>
   </React.StrictMode>
 );
