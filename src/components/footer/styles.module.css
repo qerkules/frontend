@@ -1,12 +1,17 @@
 .container {
   background-color: var(--darkblue);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .connectionContainer {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  max-width: 500px;
 }
 
 .disclaimer {
@@ -17,14 +22,10 @@
   color: rgb(157, 157, 157);
 }
 
-.logoSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .logo {
-  width: 75px;
+  width: 100px;
+  margin-bottom: 20px;
 }
 
 .link {
@@ -39,14 +40,26 @@
   align-items: center;
   flex-direction: column;
 }
+
 .contactSection {
-  font-size: 8px;
-  color: white;
-}
-.contactTitle {
   font-size: 10px;
+  color: white;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contactTitle {
+  font-size: 12px;
   margin-bottom: 10px;
 }
+
 .contactEmail {
   margin-bottom: 5px;
+}
+
+.mapImage{
+  width: 150px;
 }
