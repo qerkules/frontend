@@ -162,9 +162,15 @@
   width: 100%;
 }
 
-@media (min-width: 500px) and (max-width: 960px) {
+@media (min-width: 450px) and (max-width: 600px) {
   .mySwiper {
     height: 400px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .mySwiper {
+    height: 600px;
   }
 }
 
