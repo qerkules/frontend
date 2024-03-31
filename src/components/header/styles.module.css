@@ -7,11 +7,13 @@
 .headerSection {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .leftSide {
   margin-bottom: 30px;
   padding: 15px;
+  width: 350px;
 }
 
 .title {
@@ -68,6 +70,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 450px;
   }
 
   .title {
@@ -83,7 +86,7 @@
   .image {
     width: 400px;
   }
-  .rightSide{
+  .rightSide {
     display: flex;
     justify-content: center;
     align-items: center;

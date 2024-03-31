@@ -9,8 +9,10 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import { Checkbox, FormGroup, TextField } from "@mui/material";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const Booking = ({ click, carName }) => {
+  const { t } = useTranslation();
   const [pickUpDate, setPickUpDate] = React.useState();
   const [returnDate, setReturnDate] = React.useState();
   const [pickUpLocation, setPickUpLocation] = React.useState();
@@ -90,7 +92,7 @@ const Booking = ({ click, carName }) => {
           <div className={`${styles.pickupSection}`}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                label="Pick up Date"
+                label={t("pickUpDate")}
                 onChange={(newValue) => {
                   setPickUpDate(newValue.$d.toString().slice(4, 15));
                 }}
@@ -111,7 +113,7 @@ const Booking = ({ click, carName }) => {
                 helperText={pickUpLocationError}
               >
                 <FormControlLabel
-                  label="Airport"
+                  label={t("airport")}
                   control={<Radio />}
                   value="Airport"
                   onChange={() => setPickUpLocation("Airport")}
@@ -123,7 +125,7 @@ const Booking = ({ click, carName }) => {
                   }}
                 />
                 <FormControlLabel
-                  value="Hotel"
+                  value={t("hotel")}
                   onChange={() => setPickUpLocation("Hotel")}
                   control={<Radio />}
                   label="Hotel"
@@ -141,7 +143,7 @@ const Booking = ({ click, carName }) => {
           <div className={`${styles.pickupSection}`}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
-                label="Return Date"
+                label={t("returnDate")}
                 sx={{ width: 170 }}
                 variant="standart"
                 onChange={(newValue) => {
@@ -162,7 +164,7 @@ const Booking = ({ click, carName }) => {
                   value="Airport"
                   onChange={() => setReturnLocation("Airport")}
                   control={<Radio />}
-                  label="Airport"
+                  label={t("airport")}
                   sx={{
                     "& svg": {
                       width: "18px",
@@ -174,7 +176,7 @@ const Booking = ({ click, carName }) => {
                   value="Hotel"
                   onChange={() => setReturnLocation("Hotel")}
                   control={<Radio />}
-                  label="Hotel"
+                  label={t("hotel")}
                   sx={{
                     "& svg": {
                       width: "18px",
@@ -186,12 +188,12 @@ const Booking = ({ click, carName }) => {
             </FormControl>
           </div>
 
-          <div>Contact Information</div>
+          <div>{t("contactInfo")}</div>
 
           <div className={`${styles.dFlex}`}>
             <TextField
               id="standard-basic"
-              label="Name"
+              label={t("name")}
               variant="standard"
               className={`${styles.mRight} ${styles.mWidth}`}
               value={name}
@@ -204,7 +206,7 @@ const Booking = ({ click, carName }) => {
             />
             <TextField
               id="standard-basic"
-              label="Surname"
+              label={t("surname")}
               variant="standard"
               className={`${styles.mWidth}`}
               value={surname}
@@ -218,7 +220,7 @@ const Booking = ({ click, carName }) => {
           <div className={`${styles.dFlex}`}>
             <TextField
               id="standard-basic"
-              label="Whatsapp Number"
+              label={t("whatNumber")}
               variant="standard"
               className={`${styles.mRight} ${styles.mWidth}`}
               value={phoneNumber}
@@ -229,7 +231,7 @@ const Booking = ({ click, carName }) => {
             />
             <TextField
               id="standard-basic"
-              label="Email"
+              label={t("email")}
               variant="standard"
               className={`${styles.mWidth}`}
               value={email}
@@ -247,11 +249,11 @@ const Booking = ({ click, carName }) => {
             <FormControlLabel
               required
               control={<Checkbox />}
-              label="i am over 19 years old "
+              label={t("iAmOver")}
             />
           </div>
           <div className={`${styles.bookNow}`} onClick={handleSubmit}>
-            Book Now
+            {t("bookNow")}
           </div>
         </FormGroup>
       </div>

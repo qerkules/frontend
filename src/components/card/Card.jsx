@@ -4,10 +4,11 @@ import { FaGasPump } from "react-icons/fa6";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaCar } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Card = ({ car }) => {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
@@ -47,7 +48,7 @@ const Card = ({ car }) => {
           &nbsp;${car.priceUsd} <span className={`${styles.day}`}>/day</span>{" "}
         </div>
         <a className={`${styles.bookNow}`} href={`/cars/${car.number}`}>
-          More Info
+          {t("moreInfo")}
         </a>
       </div>
     </div>

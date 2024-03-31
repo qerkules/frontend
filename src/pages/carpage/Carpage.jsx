@@ -15,16 +15,17 @@ import Bluetooth from "./icons/Bluetooth.jsx";
 import HeatedSeat from "./icons/HeatedSeat.jsx";
 import BackCamera from "./icons/BackCamera.jsx";
 import Insurance from "./icons/Insurance.jsx";
-import Transmission from "./icons/Transmission.jsx";
 import Card from "../../components/card/Card.jsx";
 import Booking from "../../components/booking/Booking.jsx";
 import { useGetCarByIdQuery, useGetCarsQuery } from "../../state/api.js";
+import { useTranslation } from "react-i18next";
 
 const Carpage = () => {
   const [isOpen, setStatus] = useState(false);
   const carNumber = window.location.pathname.slice(6, 13);
   const { data, isLoading } = useGetCarByIdQuery(carNumber);
   const { data: cars, isLoading: loading } = useGetCarsQuery();
+  const { t } = useTranslation();
 
   const handleClick = () => {
     setStatus(!isOpen);
@@ -108,11 +109,9 @@ const Carpage = () => {
             <div>
               <div className={`${styles.price}`}>
                 &nbsp;$ {data && data.priceUsd}
-                <span className={`${styles.day}`}>/day</span>{" "}
+                <span className={`${styles.day}`}>/{t("day")}</span>{" "}
               </div>
-              <p className={`${styles.tip}`}>
-                *More days will be calculated with discounted price
-              </p>
+              <p className={`${styles.tip}`}>{t("priceTip")}</p>
             </div>
             <div
               className={`${styles.bookNow}`}
@@ -120,62 +119,57 @@ const Carpage = () => {
                 handleClick();
               }}
             >
-              Book Now
+              {t("bookNow")}
             </div>
           </div>
 
           <div className={`${styles.aboutCar}`}>
-            <h4 className={`${styles.aboutCarTitle}`}>Features</h4>
+            <h4 className={`${styles.aboutCarTitle}`}>{t("features")}</h4>
 
             <div className={`${styles.carFeature}`}>
               <Bluetooth className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>Bluetooth</span>
+              <span>{t("bluetooth")}</span>
             </div>
             <div className={`${styles.carFeature}`}>
               <UsbInput className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>USB input</span>
+              <span>{t("usbIn")}</span>
             </div>
             <div className={`${styles.carFeature}`}>
               <UsbCharger className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>USB charger</span>
+              <span>{t("usbCh")}</span>
             </div>
             {data && data.brand + " " + data.model !== "Toyota Camry" && (
               <div className={`${styles.carFeature}`}>
                 <HeatedSeat className={`${styles.featureIcon}`} />
                 &nbsp;&nbsp;
-                <span>Heated Seats</span>
+                <span>{t("heatedSeat")}</span>
               </div>
             )}
             <div className={`${styles.carFeature}`}>
               <BackCamera className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>Backup camera</span>
+              <span>{t("backupCam")}</span>
             </div>
             <div className={`${styles.carFeature}`}>
               <Insurance className={`${styles.featureIcon}`} />
               &nbsp;&nbsp;
-              <span>Casco Insurance</span>
-            </div>
-            <div className={`${styles.carFeature}`}>
-              <Transmission className={`${styles.featureIcon}`} />
-              &nbsp;&nbsp;
-              <span>Automatic transmission</span>
+              <span>{t("cascoIns")}</span>
             </div>
             {data && Number(data.year) > 2016 && (
               <div className={`${styles.carFeature}`}>
                 <Carplay className={`${styles.featureIcon}`} />
                 &nbsp;&nbsp;
-                <span>Apple & Android CarPlay</span>
+                <span>{t("carPlay")}</span>
               </div>
             )}
           </div>
         </div>
       </div>
       <div className={`${styles.cardSection}`}>
-        <h4 className={`${styles.cardTitle}`}>Available Cars</h4>
+        <h4 className={`${styles.cardTitle}`}>{t("availableCars")}</h4>
         <div className={`${styles.cardContainer}`}>
           {cars &&
             cars.map((car) => {

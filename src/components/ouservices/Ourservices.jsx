@@ -6,32 +6,29 @@ import { BiSupport } from "react-icons/bi";
 import { IoMdPersonAdd } from "react-icons/io";
 import { MdLocalAirport } from "react-icons/md";
 import SectionImg from "../../images/sectionimg.png";
+import { useTranslation } from "react-i18next";
 
 const Ourservices = () => {
+  const { t } = useTranslation();
   return (
     <div className={`${styles.container}`}>
-      
       <div className={`${styles.sectionImgContainer}`}>
         <img src={SectionImg} alt="" className={`${styles.sectionImg}`} />
       </div>
 
       <div className={`${styles.detailsSection}`}>
         <div className={`${styles.whyChoose}`}>
-          <p>Why Choose Us</p>
+          <p>{t("whyChoose")}</p>
         </div>
-        <h2 className={`${styles.title}`}>
-          We offer the best rental experience with rental deals
-        </h2>
+        <h2 className={`${styles.title}`}>{t("whyChooseTitle")}</h2>
         <div className={`${styles.infoSection}`}>
           <div className={`${styles.infoCard}`}>
             <div className={`${styles.iconContainer}`}>
               <BsCash />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Best Price guaranteed</h4>
-              <p className={`${styles.infoSubtitle}`}>
-                Best price performance cars in baku
-              </p>
+              <h4 className={`${styles.infoTitle}`}>{t("bPriceT")}</h4>
+              <p className={`${styles.infoSubtitle}`}>{t("bPriceST")}</p>
             </div>
           </div>
           <div className={`${styles.infoCard}`}>
@@ -39,10 +36,8 @@ const Ourservices = () => {
               <MdLocalAirport />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Delivery To Airport</h4>
-              <p className={`${styles.infoSubtitle}`}>
-                Best price performance cars in baku
-              </p>
+              <h4 className={`${styles.infoTitle}`}>{t("dToAirT")}</h4>
+              <p className={`${styles.infoSubtitle}`}>{t("dToAirST")}</p>
             </div>
           </div>
           <div className={`${styles.infoCard}`}>
@@ -50,10 +45,8 @@ const Ourservices = () => {
               <Ri24HoursFill />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>24 Hour Car delivery</h4>
-              <p className={`${styles.infoSubtitle}`}>
-                Best price performance cars in baku
-              </p>
+              <h4 className={`${styles.infoTitle}`}>{t("hourDeliverT")}</h4>
+              <p className={`${styles.infoSubtitle}`}>{t("hourDeliverSt")}</p>
             </div>
           </div>
           <div className={`${styles.infoCard}`}>
@@ -61,10 +54,8 @@ const Ourservices = () => {
               <IoMdPersonAdd />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>Experienced driver</h4>
-              <p className={`${styles.infoSubtitle}`}>
-                Best price performance cars in baku
-              </p>
+              <h4 className={`${styles.infoTitle}`}>{t("expDriverT")}</h4>
+              <p className={`${styles.infoSubtitle}`}>{t("expDriverST")}</p>
             </div>
           </div>
           <div className={`${styles.infoCard}`}>
@@ -72,10 +63,8 @@ const Ourservices = () => {
               <BiSupport />
             </div>
             <div className={`${styles.infoBox}`}>
-              <h4 className={`${styles.infoTitle}`}>24/7 Support </h4>
-              <p className={`${styles.infoSubtitle}`}>
-                Best price performance cars in baku
-              </p>
+              <h4 className={`${styles.infoTitle}`}>{t("hourSupportT")} </h4>
+              <p className={`${styles.infoSubtitle}`}>{t("hourSupportST")}</p>
             </div>
           </div>
         </div>

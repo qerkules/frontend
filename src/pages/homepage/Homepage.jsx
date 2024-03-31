@@ -5,10 +5,11 @@ import Header from "../../components/header/Header";
 import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
 import { useGetCarsByClassQuery, useGetCarsQuery } from "../../state/api";
+import { useTranslation } from "react-i18next";
 
 const Homepage = () => {
   const ref = useRef(null);
-
+  const { t } = useTranslation();
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -25,7 +26,7 @@ const Homepage = () => {
       <BrandBanner />
       <div className={`${styles.cardSection}`}>
         <h4 ref={ref} className={`${styles.cardTitle}`}>
-          Available Cars
+          {t("availableCars")}
         </h4>
         <div className={`${styles.classSection}`}>
           <div
@@ -34,7 +35,7 @@ const Homepage = () => {
             }`}
             onClick={() => setClass("Econom Class")}
           >
-            Econom Rent a car
+           {t("ecoRent")}
           </div>
           <div
             className={`${styles.classContainer} ${
@@ -42,7 +43,7 @@ const Homepage = () => {
             }`}
             onClick={() => setClass("Middle Class")}
           >
-            Middle Rent a car
+            {t("middleRent")}
           </div>
           <div
             className={`${styles.classContainer} ${
@@ -50,7 +51,7 @@ const Homepage = () => {
             }`}
             onClick={() => setClass("Premium Class")}
           >
-            Premium Rent a car
+            {t("premiumRent")}
           </div>
           <div
             className={`${styles.classContainer} ${
@@ -58,7 +59,7 @@ const Homepage = () => {
             }`}
             onClick={() => setClass("Suv Class")}
           >
-            Suv Rent a car
+            {t("suvRent")}
           </div>
         </div>
 
