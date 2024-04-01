@@ -8,7 +8,9 @@ import { useTranslation } from "react-i18next";
 
 const Card = ({ car }) => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  console.log();
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
@@ -45,7 +47,8 @@ const Card = ({ car }) => {
 
       <div className={`${styles.priceSection}`}>
         <div className={`${styles.price}`}>
-          &nbsp;${car.priceUsd} <span className={`${styles.day}`}>/day</span>{" "}
+          {i18n.language === "az" ? `₼${car.priceAzn}` : `$ ${car.priceUsd}`}{" "}
+          <span className={`${styles.day}`}>/{t("day")}</span>{" "}
         </div>
         <a className={`${styles.bookNow}`} href={`/cars/${car.number}`}>
           {t("moreInfo")}

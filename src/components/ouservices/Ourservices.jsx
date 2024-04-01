@@ -46,7 +46,7 @@ const Ourservices = () => {
             </div>
             <div className={`${styles.infoBox}`}>
               <h4 className={`${styles.infoTitle}`}>{t("hourDeliverT")}</h4>
-              <p className={`${styles.infoSubtitle}`}>{t("hourDeliverSt")}</p>
+              <p className={`${styles.infoSubtitle}`}>{t("hourDeliverST")}</p>
             </div>
           </div>
           <div className={`${styles.infoCard}`}>
