@@ -3,14 +3,11 @@ import styles from "./styles.module.css";
 import { FaGasPump } from "react-icons/fa6";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaCar } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const Card = ({ car }) => {
-  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
-  console.log();
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
