@@ -32,6 +32,46 @@ const Carpage = () => {
   const handleClick = () => {
     setStatus(!isOpen);
   };
+  const carClass = () => {
+    if (data) {
+      if (data.class === "Economy Class") {
+        return t("ecoClass");
+      } else if (data.class === "Middle Class") {
+        return t("middleClass");
+      } else if (data.class === "Suv Class") {
+        return t("suvClass");
+      } else if (data.class === "Premium Class") {
+        return t("premiumClass");
+      }
+    }
+  };
+  const fuelType = () => {
+    if (data) {
+      if (data.mainDetails.fuel === "Gas") {
+        return t("gas");
+      } else if (data.mainDetails.fuel === "Diesel") {
+        return t("diesel");
+      }
+    }
+  };
+  const carType = () => {
+    if (data) {
+      if (data.mainDetails.type === "Sedan") {
+        return t("sedan");
+      } else if (data.mainDetails.type === "Suv") {
+        return t("suv");
+      }
+    }
+  };
+  const carSeats = () => {
+    if (data) {
+      if (data.mainDetails.seats === "5 Seater") {
+      return `5 ${t("seater")}`;
+      } else if (data.mainDetails.seats === "7 Seater") {
+        return `7 ${t("seater")}`;
+      }
+    }
+  };
 
   const bookingComponent = (
     <Booking
@@ -42,13 +82,13 @@ const Carpage = () => {
   );
   const mainComponent = (
     <div className={`${styles.container}`}>
-        <Helmet>
-          <title>Car Page - Rent a car in Baku</title>
-          <meta
-            name="description"
-            content="You can find every details about all cars model and book easy just one click"
-          />
-        </Helmet>
+      <Helmet>
+        <title>Car Page - Rent a car in Baku</title>
+        <meta
+          name="description"
+          content="You can find every details about all cars model and book easy just one click"
+        />
+      </Helmet>
       <div className={`${styles.desktopVersion}`}>
         <div className={`${styles.leftSection}`}>
           <div className={`${styles.swiperContainer}`}>
@@ -85,26 +125,26 @@ const Carpage = () => {
             <h2 className={`${styles.carName}`}>
               {data && data.brand + " " + data.model + " " + data.year}
             </h2>
-            <h3 className={`${styles.class}`}>{data && data.class}</h3>
+            <h3 className={`${styles.class}`}>{carClass()}</h3>
           </div>
 
           <div className={`${styles.description}`}>
             <div className={`${styles.box}`}>
               <FaCar className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-              <span>{data && data.mainDetails.type}</span>
+              <span>{carType()}</span>
             </div>
             <div className={`${styles.box}`}>
               <FaGasPump className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-              <span>{data && data.mainDetails.fuel}</span>
+              <span>{fuelType()}</span>
             </div>
             <div className={`${styles.box}`}>
               <TbManualGearbox className={`${styles.icon}`} />
               &nbsp;&nbsp;
-              <span>{data && data.mainDetails.transmission}</span>
+              <span>{t("auto")}</span>
             </div>
             <div className={`${styles.box}`}>
               <GiCarDoor className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
-              <span>{data && data.mainDetails.doors}</span>
+              <span>{t("doors")}</span>
             </div>
             <div className={`${styles.box}`}>
               <PiEngineFill className={`${styles.icon}`} /> &nbsp;&nbsp;{" "}
@@ -113,7 +153,7 @@ const Carpage = () => {
             <div className={`${styles.box}`}>
               <MdOutlineAirlineSeatReclineExtra className={`${styles.icon}`} />
               &nbsp;&nbsp;
-              <span>{data && data.mainDetails.seats}</span>
+              <span>{carSeats()}</span>
             </div>
           </div>
 
@@ -195,12 +235,7 @@ const Carpage = () => {
   if (isOpen) {
     return bookingComponent;
   } else {
-    return (
-      <>
-      
-        {mainComponent}
-      </>
-    );
+    return <>{mainComponent}</>;
   }
 };
 
