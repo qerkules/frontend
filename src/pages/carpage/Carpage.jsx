@@ -20,6 +20,8 @@ import Booking from "../../components/booking/Booking.jsx";
 import { useGetCarByIdQuery, useGetCarsQuery } from "../../state/api.js";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { Helmet } from "react-helmet";
+
 const Carpage = () => {
   const [isOpen, setStatus] = useState(false);
   const carNumber = window.location.pathname.slice(6, 13);
@@ -40,6 +42,13 @@ const Carpage = () => {
   );
   const mainComponent = (
     <div className={`${styles.container}`}>
+        <Helmet>
+          <title>Car Page - Rent a car in Baku</title>
+          <meta
+            name="description"
+            content="You can find every details about all cars model and book easy just one click"
+          />
+        </Helmet>
       <div className={`${styles.desktopVersion}`}>
         <div className={`${styles.leftSection}`}>
           <div className={`${styles.swiperContainer}`}>
@@ -186,7 +195,12 @@ const Carpage = () => {
   if (isOpen) {
     return bookingComponent;
   } else {
-    return mainComponent;
+    return (
+      <>
+      
+        {mainComponent}
+      </>
+    );
   }
 };
 

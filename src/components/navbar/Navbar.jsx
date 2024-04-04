@@ -9,9 +9,16 @@ const Navbar = () => {
 
   return (
     <div className={`${styles.container}`}>
-      <div className={`${styles.logoSection}`}>
-        <LazyLoadImage src={Logo} alt="rent a car in baku logo" className={`${styles.logo}`} />
-      </div>
+      <a
+        className={`${styles.logoSection}`}
+        href="/"
+      >
+        <LazyLoadImage
+          src={Logo}
+          alt="rent a car in baku logo"
+          className={`${styles.logo}`}
+        />
+      </a>
 
       <div className={`${styles.languageSection}`}>
         <p

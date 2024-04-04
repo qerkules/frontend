@@ -52,7 +52,10 @@ const Card = ({ car }) => {
           {i18n.language === "az" ? `₼${car.priceAzn}` : `$ ${car.priceUsd}`}{" "}
           <span className={`${styles.day}`}>/{t("day")}</span>{" "}
         </div>
-        <a className={`${styles.bookNow}`} href={`/cars/${car.number}`}>
+        <a
+          className={`${styles.bookNow}`}
+          href={`/cars/${car.number}`}
+        >
           {t("moreInfo")}
         </a>
       </div>

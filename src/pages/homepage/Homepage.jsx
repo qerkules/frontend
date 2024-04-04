@@ -6,6 +6,7 @@ import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
 import { useGetCarsByClassQuery } from "../../state/api";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet";
 
 const Homepage = () => {
   const ref = useRef(null);
@@ -25,6 +26,13 @@ const Homepage = () => {
 
   return (
     <div className={`${styles.container}`}>
+      <Helmet>
+        <title>Home Page - Rent a car in Baku</title>
+        <meta
+          name="description"
+          content="Welcome to Rent a car in Baku Homepage. You can book with one click which car you want."
+        />
+      </Helmet>
       <Header click={handleClick} />
       <Ourservices />
       <BrandBanner />
