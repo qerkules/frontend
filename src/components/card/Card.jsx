@@ -4,6 +4,7 @@ import { FaGasPump } from "react-icons/fa6";
 import { TbManualGearbox } from "react-icons/tb";
 import { FaCar } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Card = ({ car }) => {
   const { t, i18n } = useTranslation();
@@ -11,7 +12,11 @@ const Card = ({ car }) => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
-        <img src={car.images[0]} alt="" className={`${styles.image}`} />
+        <LazyLoadImage
+          src={car.images[0]}
+          alt={`rent a car in baku ${car.brand}`}
+          className={`${styles.image}`}
+        />
       </div>
 
       <div className={`${styles.titleSection}`}>

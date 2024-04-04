@@ -2,13 +2,14 @@ import React from "react";
 import styles from "./styles.module.css";
 import Logo from "../../images/logo.png";
 import MapImg from "../../images/map.jpg"
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.connectionContainer}`}>
         <div className={`${styles.contactSection}`}>
-          <img src={Logo} alt="" className={`${styles.logo}`} />
+          <LazyLoadImage src={Logo} alt="rent a car in baku logo" className={`${styles.logo}`} />
           <div className={`${styles.contactTitle}`}>Contact Options</div>
           <div className={`${styles.contactEmail}`}>mmehemmsd@gmail.com</div>
           <div className={`${styles.contactNumbers}`}>
@@ -17,7 +18,7 @@ const Footer = () => {
         </div>
         <div className={`${styles.linksSection}`}>
           <a href="https://maps.app.goo.gl/VNPEHDwREo5ZuVk88">
-            <img src={MapImg} alt=""  className={`${styles.mapImage}`}/>
+            <LazyLoadImage src={MapImg} alt="rent a car in baku location"  className={`${styles.mapImage}`}/>
           </a>
         </div>
       </div>

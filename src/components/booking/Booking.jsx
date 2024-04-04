@@ -149,6 +149,8 @@ const Booking = ({ click, carName }) => {
                 onChange={(newValue) => {
                   setReturnDate(newValue.$d.toString().slice(4, 15));
                 }}
+                error={!!returnDateError}
+                helperText={returnDateError}
                 required
               />
             </LocalizationProvider>
@@ -159,6 +161,8 @@ const Booking = ({ click, carName }) => {
                 aria-labelledby="demo-row-radio-buttons-group-label"
                 name="row-radio-buttons-group"
                 required
+                error={!!returnLocationError}
+                helperText={returnLocationError}
               >
                 <FormControlLabel
                   value="Airport"

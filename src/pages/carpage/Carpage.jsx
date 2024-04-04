@@ -19,12 +19,12 @@ import Card from "../../components/card/Card.jsx";
 import Booking from "../../components/booking/Booking.jsx";
 import { useGetCarByIdQuery, useGetCarsQuery } from "../../state/api.js";
 import { useTranslation } from "react-i18next";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
 const Carpage = () => {
   const [isOpen, setStatus] = useState(false);
   const carNumber = window.location.pathname.slice(6, 13);
-  const { data, isLoading } = useGetCarByIdQuery(carNumber);
-  const { data: cars, isLoading: loading } = useGetCarsQuery();
+  const { data } = useGetCarByIdQuery(carNumber);
+  const { data: cars } = useGetCarsQuery();
   const { t } = useTranslation();
 
   const handleClick = () => {
@@ -52,12 +52,15 @@ const Carpage = () => {
               className={`${styles.mySwiper}`}
             >
               {data &&
-                data.images.map((image) => {
+                data.images.map((image, index) => {
                   return (
-                    <SwiperSlide className={`${styles.swiperSlide}`}>
-                      <img
+                    <SwiperSlide
+                      className={`${styles.swiperSlide}`}
+                      key={image}
+                    >
+                      <LazyLoadImage
                         src={`${image}`}
-                        alt=""
+                        alt={`rent a car in baku ${data.brand}`}
                         className={`${styles.image}`}
                       />
                     </SwiperSlide>
@@ -173,7 +176,7 @@ const Carpage = () => {
         <div className={`${styles.cardContainer}`}>
           {cars &&
             cars.map((car) => {
-              return <Card car={car} />;
+              return <Card car={car} key={car.number} />;
             })}
         </div>
       </div>

@@ -13,7 +13,7 @@ const Ourservices = () => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.sectionImgContainer}`}>
-        <img src={SectionImg} alt="" className={`${styles.sectionImg}`} />
+        <img src={SectionImg} alt="rent a car in baku section" className={`${styles.sectionImg}`} />
       </div>
 
       <div className={`${styles.detailsSection}`}>

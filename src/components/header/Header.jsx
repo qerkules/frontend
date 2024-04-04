@@ -3,6 +3,7 @@ import styles from "./styles.module.css";
 import CamryImg from "../../images/camry-header.png";
 import { FaAngleDoubleDown } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Header = ({ click }) => {
   const { t } = useTranslation();
@@ -14,7 +15,7 @@ const Header = ({ click }) => {
           <p className={`${styles.subTitle}`}>{t("headerSubTitle")}</p>
         </div>
         <div className={`${styles.rightSide}`}>
-          <img className={`${styles.image}`} src={CamryImg} alt="" />
+          <LazyLoadImage className={`${styles.image}`} src={CamryImg} alt="rent a car in baku header" />
         </div>
       </div>
       <div className={`${styles.buttonSection}`}>

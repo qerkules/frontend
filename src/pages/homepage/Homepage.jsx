@@ -4,7 +4,7 @@ import Card from "../../components/card/Card";
 import Header from "../../components/header/Header";
 import Ourservices from "../../components/ouservices/Ourservices";
 import BrandBanner from "../../components/bradBanner/BrandBanner";
-import { useGetCarsByClassQuery, useGetCarsQuery } from "../../state/api";
+import { useGetCarsByClassQuery } from "../../state/api";
 import { useTranslation } from "react-i18next";
 
 const Homepage = () => {
@@ -14,10 +14,14 @@ const Homepage = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [selectedClass, setClass] = useState("");
-  const { data, isLoading } = useGetCarsQuery();
-  const { data: classes, isLoading: loading } =
-    useGetCarsByClassQuery(selectedClass);
+  const [selectedClass, setClass] = useState("all");
+  const { data } = useGetCarsByClassQuery(selectedClass);
+
+  const availableCars = () => {
+    if (data !== undefined) {
+      return data.map((car) => <Card car={car} key={car.number} />);
+    }
+  };
 
   return (
     <div className={`${styles.container}`}>
@@ -35,7 +39,7 @@ const Homepage = () => {
             }`}
             onClick={() => setClass("Econom Class")}
           >
-           {t("ecoRent")}
+            {t("ecoRent")}
           </div>
           <div
             className={`${styles.classContainer} ${
@@ -63,19 +67,7 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className={`${styles.cardContainer}`}>
-          {data !== undefined &&
-            selectedClass === "" &&
-            data.map((car) => {
-              return <Card car={car} />;
-            })}
-
-          {selectedClass !== "" &&
-            classes !== null &&
-            classes.map((car) => {
-              return <Card car={car} />;
-            })}
-        </div>
+        <div className={`${styles.cardContainer}`}>{availableCars()}</div>
       </div>
     </div>
   );
