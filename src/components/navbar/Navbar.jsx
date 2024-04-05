@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import Logo from "../../images/logo.png";
+import Logo from "../../images/logo.webp";
 import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 

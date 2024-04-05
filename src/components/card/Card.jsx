@@ -39,10 +39,11 @@ const Card = ({ car }) => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.imageSection}`}>
-        <LazyLoadImage
+        <img
           src={car.images[0]}
           alt={`rent a car in baku ${car.brand}`}
           className={`${styles.image}`}
+          loading="eager"
         />
       </div>
 

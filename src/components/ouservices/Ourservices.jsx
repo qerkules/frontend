@@ -5,7 +5,7 @@ import { Ri24HoursFill } from "react-icons/ri";
 import { BiSupport } from "react-icons/bi";
 import { IoMdPersonAdd } from "react-icons/io";
 import { MdLocalAirport } from "react-icons/md";
-import SectionImg from "../../images/sectionimg.png";
+import SectionImg from "../../images/sectionimg.webp";
 import { useTranslation } from "react-i18next";
 
 const Ourservices = () => {
@@ -13,7 +13,7 @@ const Ourservices = () => {
   return (
     <div className={`${styles.container}`}>
       <div className={`${styles.sectionImgContainer}`}>
-        <img src={SectionImg} alt="rent a car in baku section" className={`${styles.sectionImg}`} />
+        <img src={SectionImg} alt="rent a car in baku section" className={`${styles.sectionImg}`} loading="eager" />
       </div>
 
       <div className={`${styles.detailsSection}`}>

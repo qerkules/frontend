@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles.module.css";
-import Logo from "../../images/logo.png";
-import MapImg from "../../images/map.jpg"
+import Logo from "../../images/logo.webp";
+import MapImg from "../../images/map.webp"
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {

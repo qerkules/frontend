@@ -9,13 +9,14 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet";
 
 const Homepage = () => {
+  const [selectedClass, setClass] = useState("all");
   const ref = useRef(null);
   const { t } = useTranslation();
+
   const handleClick = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const [selectedClass, setClass] = useState("all");
   const { data } = useGetCarsByClassQuery(selectedClass);
 
   const availableCars = () => {
